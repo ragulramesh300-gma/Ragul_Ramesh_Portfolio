@@ -1,20 +1,3 @@
-// Dynamic typing effect
-const roles = [
-  'Full Stack Developer',
-  'Next.js & NestJS Engineer',
-  'TypeScript Specialist'
-];
-const typed = document.getElementById('typed');
-let r = 0, c = 0, del = false;
-(function type() {
-  const word = roles[r];
-  typed.textContent = word.slice(0, c);
-  if (!del && c < word.length) { c++; setTimeout(type, 75); }
-  else if (!del) { del = true; setTimeout(type, 1500); }
-  else if (c > 0) { c--; setTimeout(type, 35); }
-  else { del = false; r = (r + 1) % roles.length; setTimeout(type, 300); }
-})();
-
 // Scroll reveal animation
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {

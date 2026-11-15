@@ -269,7 +269,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 2.4rem;
+  min-height: 2.2rem;
   max-width: 100%;
 }
 .prompt-sym {
@@ -280,26 +280,14 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   line-height: 1;
 }
 .typing {
-  font-size: clamp(1.05rem, 2.3vw, 1.65rem);
+  font-size: clamp(1.15rem, 2.5vw, 1.75rem);
   font-weight: 600;
   color: var(--accent);
   letter-spacing: -0.015em;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   line-height: 1.2;
   margin: 0;
-  display: inline-flex;
-  align-items: center;
 }
-.caret {
-  color: var(--accent);
-  animation: blink 1s steps(1) infinite;
-  display: inline-block;
-  margin-left: 2px;
-  flex-shrink: 0;
-}
-@keyframes blink { 50% { opacity: 0; } }
 
 .hero p {
   color: var(--text-light);
@@ -1294,7 +1282,7 @@ footer {
   .hero p { margin-inline: auto; }
   .typing-box { justify-content: center; }
   .typing {
-    font-size: clamp(0.98rem, 3.2vw, 1.35rem);
+    font-size: clamp(1.1rem, 3.4vw, 1.5rem);
   }
   .cta, .socials { justify-content: center; }
   .hero-photo { order: -1; }
@@ -1336,7 +1324,7 @@ footer {
   .cv-preview-container { padding: 16px 12px 0; max-height: 380px; }
   .cv-preview-container.expanded { padding-bottom: 16px; }
   .typing {
-    font-size: clamp(0.9rem, 4.2vw, 1.15rem);
+    font-size: clamp(1rem, 4.4vw, 1.3rem);
   }
   .toast {
     left: 18px;
@@ -1348,7 +1336,7 @@ footer {
 
 @media(max-width: 380px){
   .typing {
-    font-size: clamp(0.8rem, 3.8vw, 0.95rem);
+    font-size: clamp(0.92rem, 4.2vw, 1.15rem);
   }
 }
 
