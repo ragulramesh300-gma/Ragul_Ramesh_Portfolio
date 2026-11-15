@@ -41,9 +41,22 @@ const checkVisible = () => {
 };
 window.addEventListener('load', checkVisible);
 window.addEventListener('scroll', checkVisible, { passive: true });
+// Handle initial URL hash, redirect #cv to #resume, and clean address bar
 if (window.location.hash) {
+  const hash = window.location.hash;
+  const targetId = hash === '#cv' ? '#resume' : hash;
+  const targetEl = document.querySelector(targetId);
+  if (targetEl && targetId !== '#home') {
+    setTimeout(() => {
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+    }, 150);
+  }
   setTimeout(() => {
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    // Strip '#' from address bar so URL remains clean
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
   }, 100);
 }
 setTimeout(checkVisible, 300);
@@ -68,8 +81,29 @@ const menu = document.getElementById('menu');
 const burger = document.getElementById('burger');
 if (burger && menu) {
   burger.onclick = () => menu.classList.toggle('open');
-  menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
 }
+
+// Smooth scrolling and clean URL without '#' hash
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', (e) => {
+    const href = anchor.getAttribute('href');
+    if (!href || href === '#') return;
+    const targetId = href === '#cv' ? '#resume' : href;
+    const targetEl = document.querySelector(targetId);
+    
+    // Close mobile menu if open
+    if (menu) menu.classList.remove('open');
+    
+    if (targetEl) {
+      e.preventDefault();
+      targetEl.scrollIntoView({ behavior: 'smooth' });
+      // Remove '#' from browser address bar
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    }
+  });
+});
 
 // Project read more / show less highlights toggle
 document.querySelectorAll('.btn-more-points').forEach(btn => {
