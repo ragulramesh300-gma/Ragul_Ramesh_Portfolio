@@ -119,19 +119,89 @@ document.querySelectorAll('.btn-more-points').forEach(btn => {
   });
 });
 
-// Contact form: opens native mail client with prepopulated message
+// Toast notification utility
+const toastEl = document.getElementById('toast');
+const toastTitle = document.getElementById('toast-title');
+const toastMsg = document.getElementById('toast-msg');
+const toastIcon = document.getElementById('toast-icon');
+let toastTimer = null;
+
+function showToast(title, message, isSuccess = true) {
+  if (!toastEl) return;
+  if (toastTimer) clearTimeout(toastTimer);
+
+  toastEl.className = 'toast show ' + (isSuccess ? 'success' : 'error');
+  if (toastTitle) toastTitle.textContent = title;
+  if (toastMsg) toastMsg.textContent = message;
+  if (toastIcon) {
+    toastIcon.innerHTML = isSuccess
+      ? `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`
+      : `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+  }
+
+  toastTimer = setTimeout(() => {
+    toastEl.classList.remove('show');
+  }, 4500);
+}
+
+// Contact form: submits to Brevo backend API with Toast feedback & auto-reply
 const contactForm = document.getElementById('form');
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const fname = document.getElementById('fname');
     const femail = document.getElementById('femail');
     const fmsg = document.getElementById('fmsg');
-    const n = fname ? fname.value.trim() : '';
-    const m = femail ? femail.value.trim() : '';
-    const msg = fmsg ? fmsg.value.trim() : '';
-    const body = encodeURIComponent(`${msg}\n\nFrom: ${n} (${m})`);
-    location.href = `mailto:ragulramesh1900@gmail.com?subject=${encodeURIComponent('Portfolio Inquiry from ' + n)}&body=${body}`;
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    const name = fname ? fname.value.trim() : '';
+    const email = femail ? femail.value.trim() : '';
+    const message = fmsg ? fmsg.value.trim() : '';
+
+    if (!name || !email || !message) {
+      showToast('Missing details', 'Please enter your name, email, and message.', false);
+      return;
+    }
+
+    const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.style.opacity = '0.75';
+      submitBtn.innerHTML = `<span>Sending...</span>`;
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok && result.success) {
+        showToast('Message sent!', 'Thanks for reaching out! I will reply shortly.', true);
+        contactForm.reset();
+      } else {
+        throw new Error(result.error || 'Server returned an error');
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      // Fallback: inform user and allow direct mailto if API key is not yet configured
+      showToast(
+        'Email service connecting',
+        'Could not send via server. Please email directly to ragulramesh1900@gmail.com',
+        false
+      );
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '';
+        submitBtn.innerHTML = originalBtnContent;
+      }
+    }
   });
 }
 
