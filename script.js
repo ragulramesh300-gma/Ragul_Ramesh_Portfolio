@@ -114,3 +114,18 @@ document.querySelectorAll('.project, .skill-card').forEach(card => {
     card.style.transform = '';
   });
 });
+
+// CV Expand / Collapse toggle
+const cvToggleBtn = document.getElementById('cv-toggle-btn');
+const cvContainer = document.getElementById('cv-container');
+const cvToggleText = document.getElementById('cv-toggle-text');
+
+if (cvToggleBtn && cvContainer) {
+  cvToggleBtn.addEventListener('click', () => {
+    const isExpanded = cvContainer.classList.toggle('expanded');
+    cvToggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    if (cvToggleText) {
+      cvToggleText.textContent = isExpanded ? 'Collapse resume' : 'View full resume';
+    }
+  });
+}

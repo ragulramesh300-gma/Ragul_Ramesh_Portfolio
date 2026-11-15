@@ -36,7 +36,7 @@
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#achievements">Achievements</a>
-        <a href="Resume_V2.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="#cv">CV</a>
         <a href="#contact" class="nav-cta">Hire me</a>
       </nav>
       <div class="nav-right">
@@ -532,6 +532,43 @@
           </div>
           <h4>Global Payment Rails &amp; Fee Engine</h4>
           <p>Architected multi-currency transactions via card, PayPal, Stripe, and Wise on Liceum.ai, with automated escrow, ledger reconciliation, and fee reduction from 10% to 5%.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV / RESUME -->
+    <section id="cv" class="section cv-section">
+      <div class="cv-header reveal">
+        <div class="title" style="margin-bottom: 0;">
+          <span class="badge-num">06</span>
+          <h3>Resume</h3>
+        </div>
+        <div class="cv-actions">
+          <a href="Resume_V2.pdf" download="Ragul_Ramesh_Resume.pdf" class="cv-download-btn" aria-label="Download Resume PDF" title="Download Resume (PDF)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="card cv-card reveal">
+        <div class="cv-preview-container" id="cv-container">
+          <div class="cv-pages">
+            <img src="resume-page-1.png" alt="Ragul Ramesh Resume Page 1" class="cv-page-img" loading="lazy">
+            <img src="resume-page-2.png" alt="Ragul Ramesh Resume Page 2" class="cv-page-img" loading="lazy">
+          </div>
+          <div class="cv-fade-overlay" id="cv-overlay"></div>
+        </div>
+        <div class="cv-toggle-bar">
+          <button class="btn-cv-toggle" id="cv-toggle-btn" type="button" aria-expanded="false">
+            <span id="cv-toggle-text">View full resume</span>
+            <svg class="cv-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
         </div>
       </div>
     </section>
