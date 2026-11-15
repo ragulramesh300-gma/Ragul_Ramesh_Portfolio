@@ -42,7 +42,7 @@ export default async function handler(req, res) {
     }
 
     const apiKey = process.env.BREVO_API_KEY || process.env.BREVO_SMTP_KEY;
-    const smtpUser = process.env.BREVO_SMTP_USER;
+    const smtpUser = process.env.BREVO_SMTP_USER || 'c3502d001@smtp-brevo.com';
     const senderEmail = process.env.BREVO_SENDER_EMAIL || 'ragulramesh1900@gmail.com';
     const recipientEmail = 'ragulramesh1900@gmail.com';
 
