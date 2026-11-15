@@ -224,12 +224,12 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
    HERO SECTION
    ========================================================================== */
 .hero {
-  min-height: 100vh;
+  min-height: calc(100vh - 120px);
   display: grid;
   grid-template-columns: 1.15fr .85fr;
   align-items: center;
-  gap: 50px;
-  padding: 140px 6% 70px;
+  gap: 40px;
+  padding: 120px 6% 40px;
   max-width: 1300px;
   margin: auto;
 }
@@ -449,7 +449,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
 .section {
   max-width: 1180px;
   margin: auto;
-  padding: 100px 6%;
+  padding: 45px 6%;
 }
 .grid {
   display: grid;
@@ -458,7 +458,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 45px;
+  margin-bottom: 24px;
 }
 .badge-num {
   display: inline-flex;
@@ -944,7 +944,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 35px;
+  margin-bottom: 24px;
 }
 .cv-actions {
   display: flex;
@@ -1212,8 +1212,12 @@ footer {
   .hero {
     grid-template-columns: 1fr;
     text-align: center;
-    padding-top: 120px;
-    gap: 40px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    gap: 32px;
+  }
+  .section {
+    padding: 36px 6%;
   }
   .hero p { margin-inline: auto; }
   .typing-box { justify-content: center; }
