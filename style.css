@@ -619,6 +619,9 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   gap: 8px;
 }
 .tags span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
   padding: 6px 14px;
   border-radius: 99px;
   font-size: .84rem;
@@ -627,6 +630,12 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   border: 1px solid var(--border);
   color: var(--text);
   transition: all .2s ease;
+}
+.tags span svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+  flex-shrink: 0;
 }
 .tags span:hover {
   background: #fff;
