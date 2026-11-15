@@ -1,6 +1,3 @@
-// Year in footer
-document.getElementById('year').textContent = new Date().getFullYear();
-
 // Dynamic typing effect
 const roles = [
   'Full Stack Developer',
