@@ -75,20 +75,19 @@ if (burger && menu) {
   menu.querySelectorAll('a').forEach(a => a.onclick = () => menu.classList.remove('open'));
 }
 
-// Interactive project category filters
-const filters = document.getElementById('filters');
-if (filters) {
-  filters.addEventListener('click', (e) => {
-    const btn = e.target.closest('button');
-    if (!btn) return;
-    filters.querySelectorAll('button').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const f = btn.dataset.f;
-    document.querySelectorAll('.project').forEach(p => {
-      p.classList.toggle('hide', f !== 'all' && p.dataset.cat !== f);
-    });
+// Project read more / show less highlights toggle
+document.querySelectorAll('.btn-more-points').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.project');
+    if (!card) return;
+    const isExpanded = card.classList.toggle('expanded');
+    btn.setAttribute('aria-expanded', isExpanded);
+    const textSpan = btn.querySelector('.btn-more-text');
+    if (textSpan) {
+      textSpan.textContent = isExpanded ? 'Show less' : 'View all 10 highlights';
+    }
   });
-}
+});
 
 // Contact form: opens native mail client with prepopulated message
 const contactForm = document.getElementById('form');

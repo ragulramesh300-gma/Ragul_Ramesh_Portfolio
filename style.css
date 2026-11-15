@@ -805,10 +805,14 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   border-radius: 12px;
   background: var(--bg-subtle);
   border: 1px solid var(--border);
-  display: grid;
-  place-items: center;
-  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  box-shadow: var(--shadow-sm);
+}
+.p-icon svg {
+  display: block;
 }
 .p-title-group h4 {
   font-size: 1.55rem;
@@ -820,7 +824,47 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   font-style: normal;
   font-size: .92rem;
 }
-.project ul { margin: 8px 0 16px; }
+.project ul { margin: 8px 0 10px; }
+.project-points li.more-point {
+  display: none;
+}
+.project.expanded .project-points li.more-point {
+  display: list-item;
+  animation: fadeIn 0.25s ease;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.btn-more-points {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+  margin: 4px 0 16px;
+  transition: all .2s ease;
+  font-family: inherit;
+}
+.btn-more-points:hover {
+  background: #ffffff;
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+.btn-more-points .chevron-icon {
+  transition: transform .25s ease;
+}
+.project.expanded .btn-more-points .chevron-icon {
+  transform: rotate(180deg);
+}
 .project .tags {
   margin-top: auto;
   padding-top: 16px;
