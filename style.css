@@ -881,7 +881,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
    ACHIEVEMENTS
    ========================================================================== */
 .impact {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .impact-card {
