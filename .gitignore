@@ -7,5 +7,9 @@ desktop.ini
 .vscode/
 .idea/
 
+# Dependencies
+node_modules/
+.vercel/
+
 # Local server / environment logs
 *.log
