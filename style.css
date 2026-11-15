@@ -661,12 +661,20 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: var(--heading);
-  color: #fff;
-  display: grid;
-  place-items: center;
-  font-weight: 800;
-  font-size: 1.1rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.company-logo img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
 }
 .company-info h4 {
   font-size: 1.1rem;
