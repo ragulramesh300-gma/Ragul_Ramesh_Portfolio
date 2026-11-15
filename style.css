@@ -546,8 +546,12 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   border: 1px solid var(--border);
   display: grid;
   place-items: center;
-  font-size: 1.25rem;
   flex-shrink: 0;
+}
+.edu-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
 }
 .edu-card small {
   display: block;
