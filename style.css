@@ -161,24 +161,6 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   align-items: center;
   gap: 8px;
 }
-.btn-cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 7px 14px;
-  border-radius: 99px;
-  font-size: .85rem;
-  font-weight: 600;
-  background: var(--bg-subtle);
-  border: 1px solid var(--border);
-  color: var(--heading);
-  transition: all .2s ease;
-}
-.btn-cv:hover {
-  background: #fff;
-  border-color: var(--heading);
-  box-shadow: var(--shadow-sm);
-}
 .burger { display: none; }
 .icon-btn {
   background: var(--bg-subtle);
@@ -1090,7 +1072,6 @@ footer {
   .stats, .skills, .impact { grid-template-columns: 1fr; }
   .float { display: none; }
   .nav { padding: 8px 14px; }
-  .btn-cv { display: none; }
 }
 
 @media(prefers-reduced-motion: reduce){
