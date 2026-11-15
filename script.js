@@ -2,7 +2,6 @@
 const roles = [
   'Full Stack Developer',
   'Next.js & NestJS Engineer',
-  'SaaS Platform Architect',
   'TypeScript Specialist'
 ];
 const typed = document.getElementById('typed');
