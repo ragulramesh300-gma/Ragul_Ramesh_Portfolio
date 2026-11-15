@@ -418,7 +418,19 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   border-color: var(--heading);
   box-shadow: 0 16px 36px -4px rgba(15, 23, 42, 0.14);
 }
-.f-icon { font-size: 1.1rem; }
+.f-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.f-icon svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
 .f1 { top: 8%; left: -4%; }
 .f2 { bottom: 22%; right: -6%; animation-delay: 1s; }
 .f3 { bottom: 4%; left: 4%; animation-delay: 2s; }
