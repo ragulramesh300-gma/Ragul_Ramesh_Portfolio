@@ -52,23 +52,6 @@ if (window.location.hash) {
 }
 setTimeout(checkVisible, 300);
 
-// Animated metric counters
-const counters = document.querySelectorAll('[data-count]');
-const co = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (!e.isIntersecting) return;
-    const el = e.target, target = +el.dataset.count, suffix = el.dataset.suffix || '';
-    const start = performance.now(), dur = 1500;
-    (function tick(now) {
-      const p = Math.min((now - start) / dur, 1);
-      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))) + suffix;
-      if (p < 1) requestAnimationFrame(tick);
-    })(start);
-    co.unobserve(el);
-  });
-}, { threshold: 0.3 });
-counters.forEach(el => co.observe(el));
-
 // Nav scroll state, scroll progress bar, and back-to-top button
 const nav = document.getElementById('nav');
 const bar = document.getElementById('progress');
@@ -124,7 +107,7 @@ if (contactForm) {
 }
 
 // Interactive 3D tilt effect on cards
-document.querySelectorAll('.project, .skill-card, .stat').forEach(card => {
+document.querySelectorAll('.project, .skill-card').forEach(card => {
   card.addEventListener('mousemove', (e) => {
     const b = card.getBoundingClientRect();
     const x = (e.clientX - b.left) / b.width - .5;
