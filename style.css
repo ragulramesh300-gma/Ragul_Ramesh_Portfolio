@@ -878,10 +878,10 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
 }
 
 /* ==========================================================================
-   IMPACT & QUALITY
+   ACHIEVEMENTS
    ========================================================================== */
 .impact {
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 .impact-card {
@@ -895,7 +895,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   margin-bottom: 12px;
 }
 .impact-top b {
-  font-size: 2.8rem;
+  font-size: 2.6rem;
   font-weight: 800;
   color: var(--heading);
   letter-spacing: -0.04em;
@@ -913,6 +913,8 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
 .impact-tag.blue { background: rgba(37, 99, 235, 0.1); color: #2563EB; }
 .impact-tag.green { background: rgba(22, 163, 74, 0.1); color: #16A34A; }
 .impact-tag.purple { background: rgba(147, 51, 234, 0.1); color: #9333EA; }
+.impact-tag.amber { background: rgba(217, 119, 6, 0.1); color: #D97706; }
+.impact-tag.cyan { background: rgba(8, 145, 178, 0.1); color: #0891B2; }
 .impact-card h4 {
   font-size: 1.05rem;
   font-weight: 700;
