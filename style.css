@@ -233,6 +233,9 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   max-width: 1300px;
   margin: auto;
 }
+.hero-text {
+  min-width: 0;
+}
 .status-badge {
   display: inline-flex;
   align-items: center;
@@ -257,7 +260,7 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
 @keyframes pulse { 70% { box-shadow: 0 0 0 8px transparent; } }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   line-height: 1.08;
   margin: 22px 0 12px;
   letter-spacing: -0.035em;
@@ -266,22 +269,35 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 2.5rem;
+  min-height: 2.4rem;
+  max-width: 100%;
 }
 .prompt-sym {
   color: var(--accent);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  line-height: 1;
 }
 .typing {
-  font-size: clamp(1.25rem, 3vw, 1.85rem);
+  font-size: clamp(1.05rem, 2.3vw, 1.65rem);
   font-weight: 600;
   color: var(--accent);
   letter-spacing: -0.015em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
 }
 .caret {
   color: var(--accent);
   animation: blink 1s steps(1) infinite;
+  display: inline-block;
+  margin-left: 2px;
+  flex-shrink: 0;
 }
 @keyframes blink { 50% { opacity: 0; } }
 
@@ -1221,6 +1237,9 @@ footer {
   }
   .hero p { margin-inline: auto; }
   .typing-box { justify-content: center; }
+  .typing {
+    font-size: clamp(0.98rem, 3.2vw, 1.35rem);
+  }
   .cta, .socials { justify-content: center; }
   .hero-photo { order: -1; }
   .about-grid { grid-template-columns: 1fr; }
@@ -1260,6 +1279,15 @@ footer {
   .nav { padding: 8px 14px; }
   .cv-preview-container { padding: 16px 12px 0; max-height: 380px; }
   .cv-preview-container.expanded { padding-bottom: 16px; }
+  .typing {
+    font-size: clamp(0.9rem, 4.2vw, 1.15rem);
+  }
+}
+
+@media(max-width: 380px){
+  .typing {
+    font-size: clamp(0.8rem, 3.8vw, 0.95rem);
+  }
 }
 
 @media(prefers-reduced-motion: reduce){
