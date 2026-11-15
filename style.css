@@ -317,6 +317,12 @@ h1, h2, h3, h4 { color: var(--heading); letter-spacing: -0.025em; font-weight: 7
   font-weight: 500;
   transition: all .2s ease;
 }
+.social-chip svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+}
 .social-chip:hover {
   background: #fff;
   border-color: var(--heading);
@@ -978,6 +984,12 @@ input:focus, textarea:focus {
   font-size: .92rem;
   font-weight: 500;
   transition: .2s;
+}
+.c-link svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
 }
 .c-link:hover { color: var(--heading); }
 
