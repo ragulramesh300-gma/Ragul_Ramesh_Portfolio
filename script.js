@@ -5,8 +5,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
 const roles = [
   'Full Stack Developer',
   'Next.js & NestJS Engineer',
-  'TypeScript Specialist',
-  'Secure Cloud App Builder'
+  'SaaS Platform Architect',
+  'TypeScript Specialist'
 ];
 const typed = document.getElementById('typed');
 let r = 0, c = 0, del = false;
