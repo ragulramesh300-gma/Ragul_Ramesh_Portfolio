@@ -114,7 +114,7 @@ document.querySelectorAll('.btn-more-points').forEach(btn => {
     btn.setAttribute('aria-expanded', isExpanded);
     const textSpan = btn.querySelector('.btn-more-text');
     if (textSpan) {
-      textSpan.textContent = isExpanded ? 'Show less' : 'View all 10 highlights';
+      textSpan.textContent = isExpanded ? 'Show less' : 'Show more';
     }
   });
 });
